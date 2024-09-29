@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Churn Prediction Model</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Churn Prediction Model</h1>
+        
+        <form action="/predict" method="post">
+            <div class="form-container">
+                <div class="form-column">
+                    <label for="MonthlyCharges">Monthly Charges:</label>
+                    <input type="text" id="MonthlyCharges" name="MonthlyCharges" required><br>
+
+                    <label for="tenure">Tenure:</label>
+                    <input type="text" id="tenure" name="tenure" required><br>
+
+                    <label for="TotalCharges">Total Charges:</label>
+                    <input type="text" id="TotalCharges" name="TotalCharges" required><br>
+
+                    <label for="PaymentMethod">Payment Method:</label>
+                    <select id="PaymentMethod" name="PaymentMethod">
+                        <option value="Electronic check">Electronic check</option>
+                        <option value="Other">Other</option>
+                    </select><br>
+
+                    <label for="InternetService">Internet Service:</label>
+                    <select id="InternetService" name="InternetService">
+                        <option value="Fiber optic">Fiber optic</option>
+                        <option value="Other">Other</option>
+                    </select><br>
+                </div>
+
+                <div class="form-column">
+                    <label for="TechSupport">Tech Support (Yes/No):</label>
+                    <select id="TechSupport" name="TechSupport">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br>
+
+                    <label for="PaperlessBilling">Paperless Billing (Yes/No):</label>
+                    <select id="PaperlessBilling" name="PaperlessBilling">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br>
+
+                    <label for="OnlineSecurity">Online Security (Yes/No):</label>
+                    <select id="OnlineSecurity" name="OnlineSecurity">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br>
+
+                    <label for="SeniorCitizen">Senior Citizen (1/0):</label>
+                    <input type="text" id="SeniorCitizen" name="SeniorCitizen" required><br>
+
+                    <label for="StreamingBoth">Streaming Both (Yes/No):</label>
+                    <select id="StreamingBoth" name="StreamingBoth">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br>
+                </div>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <h2>Prediction: {{ prediction }}</h2>
+        {% endif %}
+
+        {% if error %}
+        <h2 class="error">Error: {{ error }}</h2>
+        {% endif %}
+
+        <!-- Link to view the report -->
+        <div class="report-link">
+            <a href="/report" target="_blank">View Churn Analysis Report</a>
+        </div>
+
+        <footer>
+            <p>Made by Lakshit</p>
+        </footer>
+    </div>
+</body>
+</html>
