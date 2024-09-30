@@ -5,9 +5,12 @@ import pandas as pd
 
 app = Flask(__name__)
 
-# Load the saved model
+# Load the saved model and scaler
 with open('model.pkl', 'rb') as f:
     model = pickle.load(f)
+
+with open('scaler.pkl', 'rb') as f:
+    scaler = pickle.load(f)
 
 # Selected features for the model
 selected_features = ['MonthlyCharges', 'tenure', 'TotalCharges', 
@@ -47,6 +50,9 @@ def predict():
         
         # Creating a DataFrame from the input data
         df = pd.DataFrame(input_data)
+        
+        # Apply the scaler to the appropriate features
+        df[['tenure', 'MonthlyCharges', 'TotalCharges']] = scaler.transform(df[['tenure', 'MonthlyCharges', 'TotalCharges']])
         
         # Model prediction
         prediction = model.predict(df)

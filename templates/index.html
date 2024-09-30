@@ -14,24 +14,27 @@
             <div class="form-container">
                 <div class="form-column">
                     <label for="MonthlyCharges">Monthly Charges:</label>
-                    <input type="text" id="MonthlyCharges" name="MonthlyCharges" required><br>
+                    <input type="text" id="MonthlyCharges" name="MonthlyCharges" placeholder="Enter monthly charges" required><br>
 
                     <label for="tenure">Tenure:</label>
-                    <input type="text" id="tenure" name="tenure" required><br>
+                    <input type="text" id="tenure" name="tenure" placeholder="Enter tenure (in months)" required><br>
 
                     <label for="TotalCharges">Total Charges:</label>
-                    <input type="text" id="TotalCharges" name="TotalCharges" required><br>
+                    <input type="text" id="TotalCharges" name="TotalCharges" placeholder="Enter total charges" required><br>
 
                     <label for="PaymentMethod">Payment Method:</label>
                     <select id="PaymentMethod" name="PaymentMethod">
                         <option value="Electronic check">Electronic check</option>
-                        <option value="Other">Other</option>
+                        <option value="Bank Transfer">Bank Transfer</option>
+                        <option value="Credit Card">Credit Card</option>
+                        <option value="Mailed Check">Mailed Check</option>
                     </select><br>
 
                     <label for="InternetService">Internet Service:</label>
                     <select id="InternetService" name="InternetService">
                         <option value="Fiber optic">Fiber optic</option>
-                        <option value="Other">Other</option>
+                        <option value="DSL">DSL</option>
+                        <option value="No">No</option>
                     </select><br>
                 </div>
 
@@ -55,7 +58,7 @@
                     </select><br>
 
                     <label for="SeniorCitizen">Senior Citizen (1/0):</label>
-                    <input type="text" id="SeniorCitizen" name="SeniorCitizen" required><br>
+                    <input type="text" id="SeniorCitizen" name="SeniorCitizen" placeholder="Enter 1 for Yes, 0 for No" required><br>
 
                     <label for="StreamingBoth">Streaming Both (Yes/No):</label>
                     <select id="StreamingBoth" name="StreamingBoth">
